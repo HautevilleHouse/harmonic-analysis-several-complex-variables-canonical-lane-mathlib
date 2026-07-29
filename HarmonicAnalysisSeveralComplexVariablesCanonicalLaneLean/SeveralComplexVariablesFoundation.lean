@@ -1,0 +1,23 @@
+import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.HarmonicAnalysisSeveralComplexVariablesCanonicalLaneLean.CauchyIntegralPackage
+import HautevilleHouse.HarmonicAnalysisSeveralComplexVariablesCanonicalLaneLean.RiemannMappingPackage
+import HautevilleHouse.HarmonicAnalysisSeveralComplexVariablesCanonicalLaneLean.AnalyticContinuationPackage
+import HautevilleHouse.HarmonicAnalysisSeveralComplexVariablesCanonicalLaneLean.ValueDistributionPackage
+
+namespace HautevilleHouse
+namespace HarmonicAnalysisSeveralComplexVariablesCanonicalLaneLean
+
+structure SeveralComplexVariablesFoundation where
+  cauchyIntegral : CauchyIntegralPackage
+  riemannMapping : RiemannMappingPackage cauchyIntegral
+  analyticContinuation : AnalyticContinuationPackage
+  valueDistribution : ValueDistributionPackage
+
+def foundationClosed (F : SeveralComplexVariablesFoundation) : Prop :=
+  CauchyIntegralClosed F.cauchyIntegral ∧
+  RiemannMappingClosed F.riemannMapping ∧
+  AnalyticContinuationClosed F.analyticContinuation ∧
+  ValueDistributionClosed F.valueDistribution
+
+end HarmonicAnalysisSeveralComplexVariablesCanonicalLaneLean
+end HautevilleHouse
